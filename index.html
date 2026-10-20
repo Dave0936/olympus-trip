@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Olympus Trip 35 — Capture Moments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Krona+One&amp;family=Geist:wght@300..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#EEEAE1;color:#1A1A1A;-webkit-font-smoothing:antialiased;overflow-x:clip}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:#C46838}
+input::placeholder{color:rgba(238,234,225,.75)}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position:relative;background:#EEEAE1;color:#1A1A1A;font-family:'Geist',system-ui,sans-serif;overflow-x:clip">
+
+<div ref="{{ glRef }}" style="position:fixed;inset:0;pointer-events:none;z-index:50"></div>
+<sc-if value="{{ showGrain }}" hint-placeholder-val="{{ true }}">
+  <div ref="{{ grainRef }}" style="position:fixed;inset:-120px;pointer-events:none;z-index:60;opacity:.13;mix-blend-mode:overlay"></div>
+</sc-if>
+
+<!-- ACT 1 · HERO -->
+<section data-act="hero" data-screen-label="01 Hero" style="position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column">
+  <div style="position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.13)"></div>
+  <div style="position:absolute;left:0;right:0;top:13vh;border-top:1px dashed rgba(26,26,26,.13)"></div>
+  <div style="position:absolute;left:0;right:0;top:46vh;border-top:1px dashed rgba(26,26,26,.13)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:8vh;border-top:1px dashed rgba(26,26,26,.13)"></div>
+  <div style="position:absolute;top:0;bottom:0;left:4vw;border-left:1px dashed rgba(26,26,26,.1)"></div>
+  <div style="position:absolute;top:0;bottom:0;right:4vw;border-left:1px dashed rgba(26,26,26,.1)"></div>
+  <div style="position:absolute;top:13vh;left:4vw;width:30px;height:30px;border-top:1.5px solid #1A1A1A;border-left:1.5px solid #1A1A1A"></div>
+  <div style="position:absolute;top:13vh;right:4vw;width:30px;height:30px;border-top:1.5px solid #1A1A1A;border-right:1.5px solid #1A1A1A"></div>
+  <div style="position:absolute;bottom:8vh;left:4vw;width:30px;height:30px;border-bottom:1.5px solid #1A1A1A;border-left:1.5px solid #1A1A1A"></div>
+  <div style="position:absolute;bottom:8vh;right:4vw;width:30px;height:30px;border-bottom:1.5px solid #1A1A1A;border-right:1.5px solid #1A1A1A"></div>
+
+  <nav style="position:relative;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:26px 4vw">
+    <a href="#" style="font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:15px;letter-spacing:.02em">OLYMPUS</a>
+    <div style="display:flex;gap:4px;padding:4px;background:#C46838;border-radius:8px">
+      <a href="#" style="padding:7px 12px;border:1px solid rgba(238,234,225,.55);border-radius:5px;color:#EEEAE1;font-size:10px;font-weight:600;letter-spacing:.12em" style-hover="background:#EEEAE1;color:#C46838">HOME</a>
+      <a href="#" style="padding:7px 12px;border:1px solid rgba(238,234,225,.55);border-radius:5px;color:#EEEAE1;font-size:10px;font-weight:600;letter-spacing:.12em" style-hover="background:#EEEAE1;color:#C46838">PRODUCTS</a>
+      <a href="#" style="padding:7px 12px;border:1px solid rgba(238,234,225,.55);border-radius:5px;color:#EEEAE1;font-size:10px;font-weight:600;letter-spacing:.12em" style-hover="background:#EEEAE1;color:#C46838">ABOUT US</a>
+      <a href="#" style="padding:7px 12px;border:1px solid rgba(238,234,225,.55);border-radius:5px;color:#EEEAE1;font-size:10px;font-weight:600;letter-spacing:.12em" style-hover="background:#EEEAE1;color:#C46838">CONTACT</a>
+    </div>
+    <a href="#" style="justify-self:end;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.12em">
+      <span style="width:14px;height:11px;border:1.5px solid currentColor;border-top:none;border-radius:0 0 3px 3px"></span>CART (0)
+    </a>
+  </nav>
+
+  <h1 style="position:relative;width:fit-content;margin:0 auto;padding:7vh 0 0;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(44px,11.4vw,220px);line-height:.88;letter-spacing:-.035em;text-wrap:nowrap">
+    <span style="display:block">CAPTURE</span>
+    <span style="display:block;padding-left:10vw">MOMENTS</span>
+  </h1>
+
+  <div style="position:relative;margin-top:auto;padding:4vh 7vw 11vh;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:5vh;max-width:280px">
+      <a href="#act2" style="position:relative;z-index:30;width:150px;height:84px;border-radius:50%;background:#1A1A1A;color:#EEEAE1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Krona One',sans-serif;font-size:11px;line-height:1.5;transform:rotate(-14deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-6deg) scale(1.14);color:#EEEAE1">EXPLORE<br>MORE</a>
+      <p style="margin:0;font-size:13px;line-height:1.55;font-weight:500">Discover <em style="font-family:'Instrument Serif',serif;font-size:15px">Olympus Trip 35</em> the classic 35mm compact for travellers, storytellers, and photographers <em style="font-family:'Instrument Serif',serif;font-size:15px">who demand excellence</em> in every shot.</p>
+    </div>
+    <p style="margin:0;font-size:15px;line-height:1.5;font-weight:600;text-align:left">
+      <em style="font-family:'Instrument Serif',serif;font-weight:400;font-size:18px">More Than</em> Just a Camera<br>It's Your <em style="font-family:'Instrument Serif',serif;font-weight:400;font-size:18px">Creative Partner</em>
+    </p>
+  </div>
+</section>
+
+<!-- ACT 2 · FEATURES -->
+<section id="act2" data-act="act2" style="position:relative;color:#EEEAE1">
+  <div style="position:absolute;inset:0;background:#C46838;clip-path:polygon(0 0,100% 15vh,100% 100%,0 100%)"></div>
+
+  <div data-act="showcase" data-screen-label="02 Colourways" style="position:relative;height:300vh">
+    <div data-col-bg="" style="position:absolute;inset:0;background:#C46838;clip-path:polygon(0 0,100% 15vh,100% calc(100% - 12vh),0 100%)"></div>
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;padding:20vh 4vw 9vh;display:flex;flex-direction:column;justify-content:flex-end">
+      <div data-col-track="" style="position:absolute;left:0;top:16vh;display:flex;width:300vw;will-change:transform;pointer-events:none">
+        <sc-for list="{{ colorways }}" as="c" hint-placeholder-count="3">
+          <div style="width:100vw;flex:none;padding-left:3vw;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:17.5vw;line-height:.85;letter-spacing:-.03em;color:rgba(238,234,225,.2);white-space:nowrap">{{ c.word }}</div>
+        </sc-for>
+      </div>
+      <div style="position:absolute;left:0;right:0;top:54%;padding:0 6vw;display:flex;justify-content:space-between">
+        <button onClick="{{ colPrev }}" aria-label="Previous colour" style="position:relative;z-index:30;width:62px;height:32px;border-radius:50%;border:1px solid #EEEAE1;background:transparent;color:#EEEAE1;font-size:16px;cursor:pointer;transition:background .2s" style-hover="background:rgba(238,234,225,.15)">←</button>
+        <button onClick="{{ colNext }}" aria-label="Next colour" style="position:relative;z-index:30;width:62px;height:32px;border-radius:50%;border:1px solid #EEEAE1;background:transparent;color:#EEEAE1;font-size:16px;cursor:pointer;transition:background .2s" style-hover="background:rgba(238,234,225,.15)">→</button>
+      </div>
+      <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding:0 2vw">
+        <div style="display:flex;flex-direction:column;gap:18px;max-width:340px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.14em">{{ col.num }} / 03</span>
+            <span style="font-family:'Krona One',sans-serif;font-size:13px">{{ col.name }}</span>
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ colorways }}" as="c" hint-placeholder-count="3">
+                <button onClick="{{ c.go }}" aria-label="{{ c.name }}" style="position:relative;z-index:30;width:11px;height:11px;padding:0;border-radius:50%;border:1.5px solid #EEEAE1;background:{{ c.dot }};cursor:pointer"></button>
+              </sc-for>
+            </div>
+          </div>
+          <p style="margin:0;font-family:'Krona One',sans-serif;font-size:clamp(15px,1.3vw,20px);line-height:1.5">The legendary point-and-shoot film compact — loved by beginners and pros alike.</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="display:flex">
+              <image-slot id="avatar-1" src="./images/avatar-1.jpg" shape="circle" placeholder="" style="width:28px;height:28px;border:2px solid #EEEAE1;border-radius:50%"></image-slot>
+              <image-slot id="avatar-2" src="./images/avatar-2.jpg" shape="circle" placeholder="" style="width:28px;height:28px;margin-left:-9px;border:2px solid #EEEAE1;border-radius:50%"></image-slot>
+              <image-slot id="avatar-3" src="./images/avatar-3.jpg" shape="circle" placeholder="" style="width:28px;height:28px;margin-left:-9px;border:2px solid #EEEAE1;border-radius:50%"></image-slot>
+            </div>
+            <span style="font-size:12px;font-weight:500">10K+ Creators Bought</span>
+          </div>
+        </div>
+        <a href="#" style="position:relative;z-index:30;width:150px;height:86px;border-radius:50%;background:#EEEAE1;color:#1A1A1A;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Krona One',sans-serif;font-size:11px;line-height:1.5;transform:rotate(-8deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(0deg) scale(1.1);color:#1A1A1A">EXPLORE ALL<br>PRODUCTS</a>
+      </div>
+    </div>
+  </div>
+
+  <div data-act="features" data-screen-label="03 Features" style="position:relative;min-height:92vh;padding:12vh 6vw 14vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:48px;align-content:start;border-top:1px dashed rgba(238,234,225,.28)">
+    <div style="position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed rgba(238,234,225,.22)"></div>
+    <div style="display:flex;flex-direction:column;gap:22px;max-width:440px">
+      <h2 style="margin:0;font-family:'Krona One',sans-serif;font-weight:400;font-size:clamp(26px,2.7vw,44px);line-height:1.25;text-wrap:balance">Capture Life's Best Moments with Clarity</h2>
+      <p style="margin:0;font-size:15px;line-height:1.65;max-width:400px">Whether you're a professional photographer, filmmaker, traveler, or a content creator, the Olympus Trip 35 is made to go everywhere — a sharp 40mm Zuiko lens, a selenium light meter that needs no batteries, and a metal body built to last decades.</p>
+      <a href="#" style="position:relative;z-index:30;margin-top:4vh;width:140px;height:78px;border-radius:50%;background:#EEEAE1;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-family:'Krona One',sans-serif;font-size:11px;transform:rotate(-12deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-4deg) scale(1.12);color:#1A1A1A">BUY NOW</a>
+    </div>
+    <div style="justify-self:end;align-self:center;display:flex;flex-direction:column;gap:10px;max-width:240px;padding-top:16vh">
+      <span style="font-family:'Krona One',sans-serif;font-size:clamp(28px,2.6vw,40px)">10M</span>
+      <span style="font-size:13px;line-height:1.55">Trip 35s made between 1967 and 1984 — still loading film around the world today.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3 · MEMORY BURST -->
+<section data-act="act3" data-screen-label="04 Memory Burst" style="position:relative;height:250vh;background:#EEEAE1">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:25;pointer-events:none">
+    <div style="position:absolute;left:0;right:0;top:50%;border-top:1px dashed rgba(26,26,26,.1)"></div>
+    <div style="position:relative;padding:12vh 7vw 0;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Krona One',sans-serif;font-weight:400;font-size:clamp(28px,3.5vw,58px);line-height:1.2;max-width:12.5em">Where Every Click Becomes a Memory</h2>
+      <div style="display:flex;flex-direction:column;gap:26px;max-width:360px;pointer-events:auto">
+        <p style="margin:0;font-size:13.5px;line-height:1.6">The Trip 35's Zuiko 40mm f/2.8 lens and automatic exposure take care of the technical side. From casual shots to professional captures, each frame reflects clarity, depth, and soul.</p>
+        <a href="#" style="align-self:center;width:136px;height:76px;border-radius:50%;background:#1A1A1A;color:#EEEAE1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Krona One',sans-serif;font-size:10.5px;line-height:1.5;transform:rotate(-12deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)" style-hover="transform:rotate(-4deg) scale(1.12);color:#EEEAE1">SEE MORE<br>RESULTS</a>
+      </div>
+    </div>
+    <sc-for list="{{ burst }}" as="b" hint-placeholder-count="8">
+      <div data-burst="" style="position:absolute;left:50%;top:60%;width:{{ b.w }};padding:6px 6px 20px;background:#FBFAF6;box-shadow:0 14px 30px rgba(26,26,26,.18);opacity:0;transform:translate(-50%,-50%) scale(.2);pointer-events:auto;will-change:transform">
+        <image-slot id="memory-{{ $index }}" src="./images/memory-{{ $index }}.jpg" shape="rect" placeholder="{{ b.label }}" style="width:100%;height:auto;aspect-ratio:4/3;display:block"></image-slot>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ACT 4 · TESTIMONIAL -->
+<section data-act="testi" data-screen-label="05 Testimonial" style="position:relative;min-height:100vh;padding:14vh 7vw 12vh;background:#EEEAE1;display:flex;flex-direction:column;justify-content:center;gap:7vh">
+  <div style="position:absolute;left:0;right:0;top:7vh;border-top:1px dashed rgba(26,26,26,.14)"></div>
+  <div style="position:absolute;left:0;right:0;top:52%;border-top:1px dashed rgba(26,26,26,.1)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:7vh;border-top:1px dashed rgba(26,26,26,.14)"></div>
+  <span style="position:absolute;left:7vw;top:12vh;font-family:'Krona One',sans-serif;font-size:72px;line-height:1">“</span>
+
+  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:7vw;align-items:center">
+    <div style="position:relative;width:min(400px,78vw);aspect-ratio:1;justify-self:center;margin-top:4vh">
+      <div style="position:absolute;inset:0;transform:rotate(9deg) translate(10%,-3%);box-shadow:0 10px 24px rgba(26,26,26,.14)">
+        <image-slot id="stack-back-2" src="./images/stack-back-2.jpg" shape="rect" placeholder="print" style="width:100%;height:100%"></image-slot>
+      </div>
+      <div style="position:absolute;inset:0;transform:rotate(-6deg) translate(-4%,2%);box-shadow:0 10px 24px rgba(26,26,26,.14)">
+        <image-slot id="stack-back-1" src="./images/stack-back-1.jpg" shape="rect" placeholder="print" style="width:100%;height:100%"></image-slot>
+      </div>
+      <sc-for list="{{ people }}" as="p" hint-placeholder-count="1">
+        <div style="position:absolute;inset:0;background:#FBFAF6;padding:0;opacity:{{ p.op }};transition:opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1);transform:{{ p.tf }};box-shadow:0 18px 40px rgba(26,26,26,.2);pointer-events:{{ p.pe }}">
+          <image-slot id="portrait-{{ $index }}" src="./images/portrait-{{ $index }}.jpg" shape="rect" placeholder="{{ p.slot }}" style="width:100%;height:100%;filter:grayscale(1)"></image-slot>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:36px;max-width:560px">
+      <p style="margin:0;font-family:'Krona One',sans-serif;font-size:clamp(18px,1.75vw,28px);line-height:1.55;text-wrap:pretty">{{ person.quote }}</p>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase">{{ person.name }}</span>
+        <span style="font-size:12px;color:#5d5a55">{{ person.role }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:7vw;align-items:center">
+    <div style="display:flex;justify-content:center;gap:40px">
+      <button onClick="{{ prev }}" style="width:96px;height:38px;border-radius:50%;border:1.2px solid #1A1A1A;background:transparent;font-family:'Krona One',sans-serif;font-size:10px;color:#1A1A1A;cursor:pointer;transition:background .2s,color .2s" style-hover="background:#1A1A1A;color:#EEEAE1">Previous</button>
+      <button onClick="{{ next }}" style="width:96px;height:38px;border-radius:50%;border:1.2px solid #1A1A1A;background:transparent;font-family:'Krona One',sans-serif;font-size:10px;color:#1A1A1A;cursor:pointer;transition:background .2s,color .2s" style-hover="background:#1A1A1A;color:#EEEAE1">Next</button>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-family:'Geist',sans-serif;font-size:24px;font-weight:500">{{ idxLabel }}/<span style="font-size:13px;color:#6b6760">04</span></span>
+      <span style="font-family:'Krona One',sans-serif;font-size:72px;line-height:.5;padding-top:24px">”</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 5 · FOOTER -->
+<footer data-act="footer" data-screen-label="06 Footer" style="position:relative;color:#EEEAE1;overflow:hidden">
+  <div style="position:absolute;inset:0;background:#C46838;clip-path:polygon(0 0,100% 17vh,100% 100%,0 100%)"></div>
+  <div style="position:relative;padding:64vh 6vw 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px;align-items:center">
+    <div style="display:flex;gap:56px">
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:12.5px">
+        <span style="font-weight:600;letter-spacing:.1em;font-size:11px;margin-bottom:4px">PRODUCTS</span>
+        <a href="#">Cameras</a><a href="#">Photo Album</a><a href="#">Accessories</a><a href="#">Lenses</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:12.5px">
+        <span style="font-weight:600;letter-spacing:.1em;font-size:11px;margin-bottom:4px">OUR SITE</span>
+        <a href="#">About</a><a href="#">Contact</a><a href="#">Testimonials</a><a href="#">Subscribe</a>
+      </div>
+    </div>
+    <form onSubmit="{{ join }}" style="display:flex;flex-direction:column;gap:10px;justify-self:center;width:min(100%,420px)">
+      <div style="display:flex;gap:8px">
+        <input type="email" required="" value="{{ email }}" onChange="{{ setEmail }}" placeholder="Enter your email" style="flex:1;min-width:0;height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(238,234,225,.7);background:transparent;color:#EEEAE1;font-family:'Geist',sans-serif;font-size:13px;outline:none">
+        <button type="submit" style="height:44px;padding:0 26px;border-radius:999px;border:none;background:#EEEAE1;color:#1A1A1A;font-family:'Geist',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:transform .2s" style-hover="transform:scale(1.05)">Join</button>
+      </div>
+      <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:12px;padding-left:20px">You're on the list — first look at new releases soon.</span>
+      </sc-if>
+    </form>
+    <div style="justify-self:end;display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px">Social Media</span>
+      <div style="display:flex;gap:8px">
+        <a href="#" aria-label="Instagram" style="width:30px;height:30px;border-radius:50%;background:#EEEAE1;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700" style-hover="background:#1A1A1A;color:#EEEAE1">IG</a>
+        <a href="#" aria-label="X" style="width:30px;height:30px;border-radius:50%;background:#EEEAE1;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700" style-hover="background:#1A1A1A;color:#EEEAE1">X</a>
+        <a href="#" aria-label="YouTube" style="width:30px;height:30px;border-radius:50%;background:#EEEAE1;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700" style-hover="background:#1A1A1A;color:#EEEAE1">YT</a>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;margin-top:9vh;margin-bottom:-4.2vw;text-align:center;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;font-size:24.5vw;line-height:.82;letter-spacing:-.045em;white-space:nowrap">TRIP 35</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;aberration&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;mouseParallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { idx: 0, col: 0, email: '', joined: false };
+  pp = 0;
+  colRGB = [[196,104,56],[112,114,116],[30,29,28]];
+  colInfo = [{ word: 'ORANGE', name: 'Sunset Orange', num: '01' }, { word: 'GREY', name: 'Slate Grey', num: '02' }, { word: 'BLACK', name: 'Midnight Black', num: '03' }];
+  rootRef = React.createRef();
+  glRef = React.createRef();
+  grainRef = React.createRef();
+
+  people = [
+    { name: 'James Smith', role: 'Travel Photographer', quote: "The Trip 35 isn't just a camera, it's a storytelling tool. Every detail feels designed for creators, and the clarity is unmatched. It's helped me capture memories that feel alive." },
+    { name: 'Aiko Tanaka', role: 'Street Photographer', quote: "The shutter is so quiet nobody turns around. I finally get the moment before people notice it's a moment." },
+    { name: 'Marcus Reid', role: 'Documentary Filmmaker', quote: "No batteries, no menus, no fuss. The Trip 35 travels light and the negatives come back rich and sharp." },
+    { name: 'Lena Duarte', role: 'Wedding Photographer', quote: "Low light used to scare me. Now candlelit receptions are my favourite part of the day — skin tones stay warm and true." }
+  ];
+  burstData = [
+    { x: -31, y: -3, r: -8, w: 'clamp(96px,13vw,230px)' },
+    { x: 31, y: 2, r: 7, w: 'clamp(96px,13vw,230px)' },
+    { x: -20, y: -23, r: -5, w: 'clamp(80px,10vw,180px)' },
+    { x: 20, y: -22, r: 5, w: 'clamp(80px,10vw,180px)' },
+    { x: -23, y: 22, r: 6, w: 'clamp(84px,11vw,200px)' },
+    { x: 24, y: 23, r: -6, w: 'clamp(84px,11vw,200px)' },
+    { x: -1, y: -28, r: 3, w: 'clamp(64px,8vw,150px)' },
+    { x: 1, y: 31, r: -3, w: 'clamp(70px,9vw,160px)' }
+  ];
+
+  componentDidMount() {
+    this.mx = 0; this.my = 0; this.ca = 0;
+    this.onMove = e => { this.mx = e.clientX / innerWidth * 2 - 1; this.my = e.clientY / innerHeight * 2 - 1; };
+    this.onResize = () => this.resize();
+    addEventListener('pointermove', this.onMove);
+    addEventListener('resize', this.onResize);
+    this.ro = new ResizeObserver(() => this.measure());
+    this.ro.observe(this.rootRef.current);
+    this.makeGrain();
+    this.measure();
+    this.boot();
+  }
+  componentWillUnmount() {
+    this.dead = true;
+    cancelAnimationFrame(this.raf);
+    removeEventListener('pointermove', this.onMove);
+    removeEventListener('resize', this.onResize);
+    this.ro && this.ro.disconnect();
+    if (this.renderer) { this.renderer.dispose(); this.renderer.domElement.remove(); }
+  }
+  componentDidUpdate() { if (this.grainRef.current && !this.grainRef.current.style.backgroundImage) this.makeGrain(); }
+
+  makeGrain() {
+    const el = this.grainRef.current; if (!el) return;
+    const c = document.createElement('canvas'); c.width = c.height = 160;
+    const x = c.getContext('2d'), d = x.createImageData(160, 160);
+    for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+    x.putImageData(d, 0, 0);
+    el.style.backgroundImage = `url(${c.toDataURL()})`;
+  }
+
+  async boot() {
+    let THREE;
+    let L = {};
+    try {
+      [THREE, L.gltf, L.draco, L.ktx2, L.meshopt] = await Promise.all([
+        import('https://esm.sh/three@0.160.0'),
+        import('https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js'),
+        import('https://esm.sh/three@0.160.0/examples/jsm/loaders/DRACOLoader.js'),
+        import('https://esm.sh/three@0.160.0/examples/jsm/loaders/KTX2Loader.js'),
+        import('https://esm.sh/three@0.160.0/examples/jsm/libs/meshopt_decoder.module.js')
+      ]);
+    } catch (e) { console.warn('three failed to load', e); return; }
+    if (this.dead) return;
+    this.T = THREE; this.L = L;
+    this.initGL();
+    this.loadModel();
+    this.resize();
+    this.last = performance.now();
+    this.lastSy = scrollY;
+    const loop = () => { if (this.dead) return; this.tick(); this.raf = requestAnimationFrame(loop); };
+    loop();
+  }
+
+  canvasTex(w, h, draw, rx, ry) {
+    const T = this.T, c = document.createElement('canvas'); c.width = w; c.height = h;
+    draw(c.getContext('2d'), w, h);
+    const t = new T.CanvasTexture(c); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(rx, ry); return t;
+  }
+
+  initGL() {
+    const T = this.T;
+    const r = this.renderer = new T.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    r.setPixelRatio(Math.min(devicePixelRatio, 2));
+    r.setClearColor(0x000000, 0);
+    r.outputColorSpace = T.SRGBColorSpace;
+    r.toneMapping = T.ACESFilmicToneMapping;
+    r.toneMappingExposure = 1.05;
+    r.shadowMap.enabled = true;
+    r.shadowMap.type = T.VSMShadowMap;
+    r.domElement.style.cssText = 'width:100%;height:100%;display:block';
+    this.glRef.current.appendChild(r.domElement);
+
+    const scene = this.scene = new T.Scene();
+    this.cam = new T.PerspectiveCamera(30, 1, 0.1, 100);
+    this.cam.position.set(0, 0, 12);
+
+    // studio environment
+    const env = new T.Scene();
+    env.add(new T.Mesh(new T.BoxGeometry(30, 30, 30), new T.MeshBasicMaterial({ color: new T.Color(0.32, 0.3, 0.28), side: T.BackSide })));
+    const panel = (w, h, pos, look, k) => { const m = new T.Mesh(new T.PlaneGeometry(w, h), new T.MeshBasicMaterial({ color: new T.Color(k, k * 0.97, k * 0.92), side: T.DoubleSide })); m.position.set(...pos); m.lookAt(...look); env.add(m); };
+    panel(16, 6, [0, 12, 2], [0, 0, 0], 6);
+    panel(8, 12, [-10, 3, 8], [0, 0, 0], 4.5);
+    panel(3, 14, [11, 0, 4], [0, 0, 0], 5);
+    panel(14, 6, [0, 0, 13], [0, 0, 0], 2.2);
+    panel(20, 4, [0, -11, 6], [0, 0, 0], 1.2);
+    const pm = new T.PMREMGenerator(r);
+    scene.environment = pm.fromScene(env, 0.03).texture;
+
+    scene.add(new T.HemisphereLight(0xfff4e6, 0x3a2a20, 0.5));
+    const key = new T.DirectionalLight(0xfff6ea, 2.2);
+    key.position.set(2.5, 4.5, 7); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    Object.assign(key.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7, near: 1, far: 30 });
+    key.shadow.radius = 8; key.shadow.blurSamples = 16; key.shadow.bias = -0.0004;
+    scene.add(key);
+    const fill = new T.DirectionalLight(0xffe8d6, 0.6); fill.position.set(-6, 1, 4); scene.add(fill);
+
+    const floor = new T.Mesh(new T.PlaneGeometry(80, 80), new T.ShadowMaterial({ opacity: 0.12 }));
+    floor.position.z = -1.3; floor.receiveShadow = true; scene.add(floor);
+
+    this.group = new T.Group();
+    scene.add(this.group);
+
+    // chromatic aberration pass
+    this.rt = new T.WebGLRenderTarget(4, 4, { type: T.HalfFloatType, samples: 4 });
+    this.post = new T.Scene();
+    this.postCam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    this.postMat = new T.ShaderMaterial({
+      uniforms: { tDiffuse: { value: this.rt.texture }, amt: { value: 0 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+      fragmentShader: `uniform sampler2D tDiffuse; uniform float amt; varying vec2 vUv;
+        void main(){ vec2 d = (vUv - .5) * amt;
+          vec4 a = texture2D(tDiffuse, vUv + d), b = texture2D(tDiffuse, vUv), c = texture2D(tDiffuse, vUv - d);
+          float m = min(min(a.a, b.a), c.a);
+          gl_FragColor = vec4(mix(b.rgb, vec3(a.r, b.g, c.b), m), b.a);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }`,
+      blending: T.NoBlending, depthTest: false, depthWrite: false
+    });
+    this.post.add(new T.Mesh(new T.PlaneGeometry(2, 2), this.postMat));
+
+    const K = this.keys && this.keys[0];
+    const start = K ? { ...K } : { x: 0, y: 0, rx: 0, ry: 0, rz: 0, sc: 1, op: 1 };
+    start.y -= 0.7; start.sc *= 0.55; start.rz += 0.6; start.ry -= Math.PI * 2; start.op = 0;
+    this.cur = start; this.vel = { x: 0, y: 0, rx: 0, ry: 0, rz: 0, sc: 0, op: 0 };
+  }
+
+  loadModel() {
+    const T = this.T, L = this.L;
+    const loader = new L.gltf.GLTFLoader();
+    const draco = new L.draco.DRACOLoader(); draco.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    loader.setDRACOLoader(draco);
+    const ktx = new L.ktx2.KTX2Loader().setTranscoderPath('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/libs/basis/').detectSupport(this.renderer);
+    loader.setKTX2Loader(ktx);
+    loader.setMeshoptDecoder(L.meshopt.MeshoptDecoder);
+    loader.load('./models/camera.glb', gltf => {
+      if (this.dead) return;
+      const base = gltf.scene;
+      const box = new T.Box3().setFromObject(base), size = box.getSize(new T.Vector3()), c = box.getCenter(new T.Vector3());
+      const make = () => {
+        const m = base.clone(true);
+        const U = { uTint: { value: new T.Color(0, 0, 0) }, uAmt: { value: 0 } };
+        m.traverse(o => {
+          if (!o.isMesh) return;
+          o.castShadow = true;
+          const arr = Array.isArray(o.material) ? o.material : [o.material];
+          const nm = arr.map(mt => { const cl = mt.clone(); cl.envMapIntensity = 1.2; cl.onBeforeCompile = sh => {
+            sh.uniforms.uTint = U.uTint; sh.uniforms.uAmt = U.uAmt;
+            sh.fragmentShader = 'uniform vec3 uTint; uniform float uAmt;\n' + sh.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n{ vec3 c0 = diffuseColor.rgb; float mx = max(c0.r, max(c0.g, c0.b)), mn = min(c0.r, min(c0.g, c0.b)); float sat = (mx - mn) / (mx + 1e-4); float msk = smoothstep(.35, .6, sat) * step(c0.g, c0.r) * step(c0.b, c0.g); float l = dot(c0, vec3(.2126, .7152, .0722)); vec3 t = uTint * clamp(l * 2.5, .5, 1.5); diffuseColor.rgb = mix(c0, t, msk * uAmt); }');
+          }; return cl; });
+          o.material = Array.isArray(o.material) ? nm : nm[0];
+        });
+        m.position.sub(c);
+        const wrap = new T.Group(); wrap.add(m);
+        wrap.scale.setScalar(3.3 / Math.max(size.x, size.y, size.z));
+        wrap.rotation.y = this.props.modelYaw ?? 0;
+        wrap.userData.U = U;
+        return wrap;
+      };
+      const wrap = make();
+      this.model = wrap;
+      this.group.add(wrap);
+      this.lineup = [0, 1, 2].map(i => { const g = new T.Group(), w = make(); this.setTint(w.userData.U, i); g.add(w); g.visible = false; this.scene.add(g); return g; });
+    }, undefined, err => { console.warn('GLB failed, using procedural camera', err); this.group.add(this.buildCamera()); });
+  }
+
+  setTint(U, i, amt = 1) {
+    const T = this.T, tints = [null, new T.Color(0.2, 0.205, 0.21), new T.Color(0.018, 0.017, 0.016)];
+    if (!tints[i]) { U.uAmt.value = 0; return; }
+    U.uAmt.value = amt; U.uTint.value.copy(tints[i]);
+  }
+
+  buildCamera() {
+    const T = this.T, g = new T.Group();
+    const knurl = this.canvasTex(256, 8, (x, w, h) => { x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.fillStyle = '#000'; for (let i = 0; i < w; i += 4) x.fillRect(i, 0, 2, h); }, 30, 1);
+    const grain = this.canvasTex(256, 256, (x, w, h) => {
+      x.fillStyle = '#808080'; x.fillRect(0, 0, w, h);
+      for (let i = 0; i < 5000; i++) { const v = Math.random() * 255 | 0; x.fillStyle = `rgba(${v},${v},${v},.55)`; x.beginPath(); x.arc(Math.random() * w, Math.random() * h, 1 + Math.random() * 2.2, 0, 7); x.fill(); }
+    }, 1.6, 1.6);
+    const M = {
+      chrome: new T.MeshStandardMaterial({ color: 0xa9acb0, metalness: 1, roughness: 0.22, envMapIntensity: 1.35 }),
+      satin: new T.MeshStandardMaterial({ color: 0x8d9094, metalness: 0.95, roughness: 0.34, envMapIntensity: 1.35 }),
+      knurl: new T.MeshStandardMaterial({ color: 0x9a9da1, metalness: 1, roughness: 0.28, bumpMap: knurl, bumpScale: 2, envMapIntensity: 1.35 }),
+      black: new T.MeshStandardMaterial({ color: 0x141312, metalness: 0.3, roughness: 0.42 }),
+      leather: new T.MeshStandardMaterial({ color: 0xa3522a, metalness: 0, roughness: 0.72, bumpMap: grain, bumpScale: 1.6 }),
+      glass: new T.MeshPhysicalMaterial({ color: 0x07050c, metalness: 0, roughness: 0.02, clearcoat: 1, clearcoatRoughness: 0, iridescence: 1, iridescenceIOR: 1.9, iridescenceThicknessRange: [180, 520], envMapIntensity: 2.4 }),
+      vf: new T.MeshPhysicalMaterial({ color: 0x8c949c, metalness: 0.4, roughness: 0.08, clearcoat: 1, envMapIntensity: 1.6 })
+    };
+    const add = (geo, mat, x = 0, y = 0, z = 0) => { const m = new T.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = true; g.add(m); return m; };
+    const rr = (w, h, r) => { const s = new T.Shape(), x = -w / 2, y = -h / 2; s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r); s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h); s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r); s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s; };
+    const zc = (r, len, z0, mat, x = 0, y = 0, seg = 72) => { const geo = new T.CylinderGeometry(r, r, len, seg); geo.rotateX(Math.PI / 2); geo.translate(0, 0, z0 + len / 2); return add(geo, mat, x, y, 0); };
+    const yc = (r, h, x, y, z, mat) => add(new T.CylinderGeometry(r, r, h, 64), mat, x, y + h / 2, z);
+
+    const body = new T.ExtrudeGeometry(rr(3.2, 1.8, 0.28), { depth: 0.9, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 5, curveSegments: 18 });
+    body.translate(0, 0, -0.45); add(body, M.satin);
+    const lea = new T.ExtrudeGeometry(rr(3.31, 0.98, 0.05), { depth: 1.0, bevelEnabled: false, curveSegments: 6 });
+    lea.translate(0, -0.13, -0.5); add(lea, M.leather);
+    add(new T.BoxGeometry(3.33, 0.03, 1.02), M.chrome, 0, 0.37, 0);
+    add(new T.BoxGeometry(3.33, 0.03, 1.02), M.chrome, 0, -0.63, 0);
+
+    // lens
+    const lx = 0.12, ly = -0.12;
+    zc(0.74, 0.08, 0.49, M.chrome, lx, ly);
+    zc(0.66, 0.1, 0.57, M.black, lx, ly);
+    zc(0.7, 0.22, 0.67, M.knurl, lx, ly);
+    zc(0.63, 0.03, 0.89, M.black, lx, ly);
+    zc(0.64, 0.12, 0.92, M.chrome, lx, ly);
+    const bez = new T.CylinderGeometry(0.6, 0.6, 0.12, 72, 1, true); bez.rotateX(Math.PI / 2); bez.translate(0, 0, 1.08);
+    add(bez, new T.MeshStandardMaterial({ color: 0x141312, metalness: 0.3, roughness: 0.4, side: T.DoubleSide }), lx, ly, 0);
+    add(new T.RingGeometry(0.52, 0.6, 72), M.chrome, lx, ly, 1.14);
+    add(new T.RingGeometry(0.43, 0.52, 72), M.black, lx, ly, 1.13);
+    add(new T.CircleGeometry(0.6, 72), M.black, lx, ly, 0.94);
+    const cap = new T.SphereGeometry(0.46, 64, 24, 0, Math.PI * 2, 0, Math.PI * 0.3); cap.rotateX(Math.PI / 2);
+    add(cap, M.glass, lx, ly, 0.68);
+
+    // viewfinders
+    const win = (x, y, w, h) => {
+      add(new T.BoxGeometry(w + 0.09, h + 0.09, 0.05), M.chrome, x, y, 0.5);
+      add(new T.BoxGeometry(w, h, 0.06), M.black, x, y, 0.515);
+      add(new T.PlaneGeometry(w * 0.62, h * 0.62), M.vf, x, y, 0.548);
+    };
+    win(0.98, 0.63, 0.5, 0.32);
+    win(0.08, 0.63, 0.3, 0.24);
+    zc(0.1, 0.04, 0.49, M.black, -0.55, 0.55);
+    zc(0.06, 0.05, 0.49, M.vf, -0.55, 0.55);
+
+    // top plate controls
+    yc(0.22, 0.17, -1.1, 0.94, -0.02, M.knurl);
+    yc(0.15, 0.07, -1.1, 1.11, -0.02, M.chrome);
+    add(new T.BoxGeometry(0.44, 0.05, 0.36), M.satin, -0.2, 0.965, 0);
+    add(new T.BoxGeometry(0.44, 0.03, 0.04), M.chrome, -0.2, 1.0, 0.16);
+    add(new T.BoxGeometry(0.44, 0.03, 0.04), M.chrome, -0.2, 1.0, -0.16);
+    yc(0.11, 0.05, 0.52, 0.94, 0.12, M.satin);
+    yc(0.07, 0.13, 0.52, 0.94, 0.12, M.chrome);
+    yc(0.3, 0.12, 1.07, 0.94, -0.02, M.knurl);
+    yc(0.24, 0.02, 1.07, 1.06, -0.02, M.black);
+    const lever = add(new T.BoxGeometry(0.55, 0.03, 0.1), M.chrome, 1.32, 1.1, 0.18); lever.rotation.y = 0.35;
+
+    // self-timer, lugs
+    const st = add(new T.BoxGeometry(0.09, 0.48, 0.06), M.satin, -0.8, -0.2, 0.53); st.rotation.z = 0.22;
+    zc(0.07, 0.05, 0.5, M.chrome, -0.85, 0.03);
+    [-1, 1].forEach(s => {
+      add(new T.BoxGeometry(0.06, 0.12, 0.12), M.chrome, s * 1.67, 0.52, 0);
+      const lug = add(new T.TorusGeometry(0.075, 0.022, 12, 32), M.chrome, s * 1.76, 0.52, 0); lug.rotation.y = Math.PI / 2;
+    });
+    return g;
+  }
+
+  measure() {
+    const root = this.rootRef.current; if (!root) return;
+    const q = a => root.querySelector(`[data-act="${a}"]`);
+    const top = a => { const el = q(a); return el ? el.getBoundingClientRect().top + scrollY : 0; };
+    const H = innerHeight, max = Math.max(1, document.documentElement.scrollHeight - H);
+    const a3 = q('act3');
+    const act3H = a3 ? a3.offsetHeight : H;
+    this.act3Top = top('act3'); this.act3Len = Math.max(1, act3H - H); this.testiTop = top('testi');
+    const scEl = q('showcase'); this.carTop = top('showcase'); this.carLen = Math.max(1, (scEl ? scEl.offsetHeight : H) - H);
+    this.colBg = root.querySelector('[data-col-bg]'); this.colTrack = root.querySelector('[data-col-track]');
+    const k = (s, x, y, rx, ry, rz, sc, op) => ({ s, x, y, rx, ry, rz, sc, op });
+    const TAU = Math.PI * 2;
+    const ft = top('footer');
+    const restY = 0.5 - Math.max(0.28, Math.min(0.5, (ft - max) / H + 0.4));
+    const keys = [
+      k(0, 0.07, -0.06, 0.24, -0.32, 0.17, 1.0, 1),
+      k(top('act2') - H * 0.5, 0.2, 0.06, 0.5, TAU * 0.5 - 0.3, 0.25, 0.9, 1),
+      k(this.carTop, 0.0, 0.0, 0.07, TAU + 0.14, -0.13, 1.2, 1),
+      k(this.carTop + this.carLen, 0.0, 0.0, 0.07, TAU + 0.14, -0.13, 1.2, 1),
+      k(top('features') - H * 0.15, -0.2, -0.04, -0.35, TAU + 1.6, 0.3, 0.95, 1),
+      k(top('features') + H * 0.35, 0.18, -0.1, 0.3, TAU * 2 - 0.4, 0.12, 0.92, 1),
+      k(this.act3Top, 0.0, -0.08, 0.03, TAU * 2, 0, 0.8, 1),
+      k(this.act3Top + this.act3Len * 0.5, 0.0, -0.06, 0.12, TAU * 2 + 0.5, -0.06, 0.85, 1),
+      k(this.act3Top + this.act3Len, 0.0, -0.08, 0.03, TAU * 2, 0, 0.8, 1),
+      k(top('testi') + H * 0.12, -0.2, 0.02, 0.4, TAU * 2.5, 0.3, 0.3, 0),
+      k(Math.min(ft, max) - H * 0.55, 0.0, 0.1, -0.3, TAU * 3 - 1.2, -0.2, 0.6, 1),
+      k(Math.min(ft, max - H * 0.12), 0.0, restY, 0, TAU * 3, 0, 0.85, 1),
+      k(max, 0.0, restY, 0, TAU * 3, 0, 0.85, 1)
+    ];
+    this.squareFrom = Math.min(ft, max - H * 0.12) - H * 0.25;
+    for (let i = 1; i < keys.length; i++) if (keys[i].s <= keys[i - 1].s) keys[i].s = keys[i - 1].s + 1;
+    this.keys = keys;
+    this.bursts = Array.from(root.querySelectorAll('[data-burst]'));
+  }
+
+  sample(s) {
+    const K = this.keys, P = ['x', 'y', 'rx', 'ry', 'rz', 'sc', 'op'];
+    if (s <= K[0].s) return { ...K[0] };
+    for (let i = 0; i < K.length - 1; i++) {
+      const a = K[i], b = K[i + 1];
+      if (s <= b.s) {
+        let t = (s - a.s) / (b.s - a.s); t = t * t * (3 - 2 * t);
+        const o = {}; P.forEach(p => o[p] = a[p] + (b[p] - a[p]) * t); return o;
+      }
+    }
+    return { ...K[K.length - 1] };
+  }
+
+  resize() {
+    if (!this.renderer) return;
+    const w = innerWidth, h = innerHeight, dpr = this.renderer.getPixelRatio();
+    this.renderer.setSize(w, h, false);
+    this.rt.setSize(Math.round(w * dpr), Math.round(h * dpr));
+    this.cam.aspect = w / h; this.cam.updateProjectionMatrix();
+    this.visH = 2 * 12 * Math.tan(15 * Math.PI / 180);
+    this.visW = this.visH * this.cam.aspect;
+    this.resp = Math.min(1.45, 0.95 * this.cam.aspect);
+    this.measure();
+  }
+
+  tick() {
+    const now = performance.now(), dt = Math.min(0.05, (now - this.last) / 1000 || 0.016); this.last = now;
+    const sy = scrollY;
+    const tgt = this.sample(sy);
+    if (this.props.mouseParallax ?? true) {
+      const f = 1 - Math.max(0, Math.min(1, (sy - this.squareFrom) / (innerHeight * 0.25)));
+      tgt.rx += this.my * 0.12 * f; tgt.ry += this.mx * 0.2 * f;
+    }
+    const c = this.cur, v = this.vel;
+    for (const p in v) { v[p] += (tgt[p] - c[p]) * 80 * dt; v[p] *= Math.exp(-13 * dt); c[p] += v[p] * dt; }
+    this.group.position.set(c.x * this.visW, c.y * this.visH, 0);
+    this.group.rotation.set(c.rx, c.ry, c.rz);
+    this.group.scale.setScalar(Math.max(0.01, c.sc * this.resp));
+    this.glRef.current.style.opacity = Math.max(0, Math.min(1, c.op)).toFixed(3);
+
+    const speed = Math.abs(sy - this.lastSy) / dt; this.lastSy = sy;
+    const strength = this.props.aberration ?? 1;
+    const target = Math.min(0.02, speed * 0.000007) * strength;
+    this.ca += (target - this.ca) * Math.min(1, dt * 8);
+    this.postMat.uniforms.amt.value = this.ca;
+
+    if (this.lineup) {
+      const H = innerHeight, a = this.carTop, b = a + this.carLen, R = H * 0.6, R2 = H * 0.25;
+      const active = sy > a - R && sy < b + R2;
+      const raw = Math.max(0, Math.min(1, (sy - a) / this.carLen)) * 2;
+      const i0 = Math.min(1, Math.floor(raw)), fr = Math.max(0, Math.min(1, (raw - i0 - 0.15) / 0.7));
+      const tp = i0 + fr * fr * (3 - 2 * fr);
+      this.pp += (tp - this.pp) * Math.min(1, dt * 7);
+      const out = Math.min(1, Math.max(0, (a - sy) / R, (sy - b) / R2));
+      const sp = 0.62 * this.visW * (1 + 2.5 * out);
+      this.group.visible = !active;
+      this.lineup.forEach((g, i) => {
+        g.visible = active; const d = i - this.pp;
+        g.position.set(c.x * this.visW + d * sp, c.y * this.visH, 0);
+        g.rotation.set(c.rx, c.ry - d * 0.55, c.rz);
+        g.scale.setScalar(Math.max(0.01, c.sc * this.resp * (1 - 0.28 * Math.min(1, Math.abs(d)))));
+      });
+      const mAmt = sy <= b ? 0 : Math.max(0, Math.min(1, 1 - (sy - b - R2) / (H * 0.8)));
+      this.setTint(this.model.userData.U, mAmt > 0 ? 2 : 0, mAmt);
+      const k = Math.min(1, Math.floor(this.pp)), f2 = this.pp - k, A = this.colRGB[k], B = this.colRGB[Math.min(2, k + 1)];
+      if (this.colBg) this.colBg.style.background = `rgb(${A.map((v, j) => Math.round(v + (B[j] - v) * f2)).join(',')})`;
+      if (this.colTrack) this.colTrack.style.transform = `translateX(${-this.pp * 100}vw)`;
+      const ci = Math.round(this.pp);
+      if (ci !== this.state.col) this.setState({ col: ci });
+    }
+
+    // memory burst
+    if (this.bursts && this.bursts.length) {
+      const p = Math.max(0, Math.min(1, (sy - this.act3Top + innerHeight * 0.35) / (this.act3Len + innerHeight * 0.35)));
+      this.bursts.forEach((el, i) => {
+        const d = this.burstData[i]; if (!d) return;
+        let e = Math.max(0, Math.min(1, (p - i * 0.045) / 0.55));
+        e = 1 - Math.pow(1 - e, 3);
+        el.style.opacity = Math.min(1, e * 4).toFixed(3);
+        el.style.transform = `translate(-50%,-50%) translate(${d.x * e}vw, ${d.y * e}vh) rotate(${d.r * e}deg) scale(${0.18 + 0.82 * e})`;
+      });
+    }
+
+    const gr = this.grainRef.current;
+    if (gr && (this.frame = (this.frame || 0) + 1) % 4 === 0) gr.style.transform = `translate(${(Math.random() * 100) | 0}px, ${(Math.random() * 100) | 0}px)`;
+
+    const r = this.renderer;
+    r.setRenderTarget(this.rt); r.clear(); r.render(this.scene, this.cam);
+    r.setRenderTarget(null); r.clear(); r.render(this.post, this.postCam);
+  }
+
+  goCol(i) { scrollTo({ top: this.carTop + this.carLen * i / 2, behavior: 'smooth' }); }
+
+  renderVals() {
+    const idx = this.state.idx, n = this.people.length;
+    return {
+      rootRef: this.rootRef, glRef: this.glRef, grainRef: this.grainRef,
+      showGrain: this.props.grain ?? true,
+      burst: this.burstData.map((b, i) => ({ w: b.w, label: `memory 0${i + 1}` })),
+      people: this.people.map((p, i) => ({
+        slot: `portrait — ${p.name}`,
+        op: i === idx ? 1 : 0,
+        pe: i === idx ? 'auto' : 'none',
+        tf: i === idx ? 'rotate(0deg)' : 'rotate(-3deg) scale(.96)'
+      })),
+      person: this.people[idx],
+      col: this.colInfo[this.state.col],
+      colorways: this.colInfo.map((c, i) => ({ ...c, dot: i === this.state.col ? '#EEEAE1' : 'transparent', go: () => this.goCol(i) })),
+      colPrev: () => this.goCol(Math.max(0, this.state.col - 1)),
+      colNext: () => this.goCol(Math.min(2, this.state.col + 1)),
+      idxLabel: String(idx + 1),
+      prev: () => this.setState({ idx: (idx - 1 + n) % n }),
+      next: () => this.setState({ idx: (idx + 1) % n }),
+      email: this.state.email,
+      joined: this.state.joined,
+      setEmail: e => this.setState({ email: e.target.value }),
+      join: e => { e.preventDefault(); this.setState({ joined: true, email: '' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
