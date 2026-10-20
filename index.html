@@ -25,7 +25,7 @@ input::placeholder{color:rgba(238,234,225,.75)}
 <div ref="{{ rootRef }}" style="position:relative;background:#EEEAE1;color:#1A1A1A;font-family:'Geist',system-ui,sans-serif;overflow-x:clip">
 
 <div ref="{{ glRef }}" style="position:fixed;inset:0;pointer-events:none;z-index:50"></div>
-<sc-if value="{{ showGrain }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ showGrain }}" hint-placeholder-val="{{ false }}">
   <div ref="{{ grainRef }}" style="position:fixed;inset:-120px;pointer-events:none;z-index:60;opacity:.13;mix-blend-mode:overlay"></div>
 </sc-if>
 
@@ -225,7 +225,7 @@ input::placeholder{color:rgba(238,234,225,.75)}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;aberration&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;mouseParallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;aberration&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;mouseParallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
 class Component extends DCLogic {
   state = { idx: 0, col: 0, email: '', joined: false };
   pp = 0;
@@ -634,7 +634,7 @@ class Component extends DCLogic {
     const idx = this.state.idx, n = this.people.length;
     return {
       rootRef: this.rootRef, glRef: this.glRef, grainRef: this.grainRef,
-      showGrain: this.props.grain ?? true,
+      showGrain: this.props.grain ?? false,
       burst: this.burstData.map((b, i) => ({ w: b.w, label: `memory 0${i + 1}` })),
       people: this.people.map((p, i) => ({
         slot: `portrait — ${p.name}`,
